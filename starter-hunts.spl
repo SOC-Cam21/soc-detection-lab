@@ -1,0 +1,20 @@
+# Sysmon process creation
+index=* EventCode=1
+
+# Sysmon network connections
+index=* EventCode=3 source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+
+# Command Prompt execution
+index=* EventCode=1 cmd.exe
+
+# PowerShell execution
+index=* EventCode=1 powershell
+
+# Encoded PowerShell indicator
+index=* EventCode=1 CommandLine="*enc*"
+
+# Failed logons
+index=* EventCode=4625
+
+# RDP logons
+index=* EventCode=4624 Logon_Type=10
